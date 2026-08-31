@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+int main() {
+
+char trains[5][20] = {"CHENNAI EXPRESS", "HYDERABAD EXPRESS", "VIJAYAWADA EXPRESS", "GUNTUR EXPRESS", "BANGLORE EXPRESS"};
+int fare[5] = {500, 200, 300, 100, 1200};
+int choice, id, tickets,  total = 0;
+
+while(1){
+printf("\n\n====== TRAIN RESERVATION SYSTEM ========\n");
+
+printf("\n\n1.VIEW TRAINS  2.TICKET BOOKING  \n3.VIEW BOOKINGS 4.SAVE&EXIT: ");
+printf("\n\nENTER YOUR CHOICE(1-4): ");
+scanf("%d",&choice);
+
+if(choice == 1){
+
+printf("\n------ AVAILABLE TRAINS ------\n");
+for(int i = 0; i<5; i++){
+
+
+printf("%d. %s = %d\n",i+1,trains[i],fare[i]);
+
+
+}
+
+
+}
+else if(choice == 2){
+
+printf("ENTER TRAIN ID(1-5): ");
+scanf("%d",&id);
+
+if(id<1||id>5){
+
+printf("Wrong id\n");
+
+continue;
+}
+else {
+printf("HOW MANY TICKETS DO YOU WANT: ");
+scanf("%d",&tickets);
+
+printf("BOOKING SUCCESSFULL✅\n");
+total = total+tickets*fare[id-1];
+
+
+}
+}
+else if(choice == 3){
+
+
+if(total==0){
+printf("NOT BOOKINGS YET\n");
+
+continue;
+
+}
+else{
+printf("\n--- YOUR BOOKINGS ---\n");
+
+printf("%s x %d persons = %d\n",trains[id-1],tickets,total);
+
+}
+
+}
+else if(choice ==4){
+
+printf("Thank you! visit us again\n");
+break;
+
+}
+else{
+
+printf("wrong choice!\n");
+
+}
+}
+
+return 0;
+
+
+
+
+
+
+}
